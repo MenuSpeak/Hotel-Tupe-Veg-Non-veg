@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />  
-    <meta name="viewport" content="width=device-width,initial-scale=1" />     
-    <title>Tupe's</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, viewport-fit=cover" />
+    <title>Tupe's | Pure Veg & Non-Veg Delights</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -70,30 +70,31 @@
             gap: 24px;
         }
 
-        /* ========= CAFE HEADER - ONLY LOGO SECTION, NO NAME ========= */
+        /* ========= CAFE HEADER - ONLY LOGO SECTION, NO TEXT NAME ========= */
         .cafe-header {
             background: rgba(15, 17, 20, 0.65);
             backdrop-filter: blur(8px);
             border-radius: 32px;
-            padding: 16px 24px;
+            padding: 18px 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        /* Logo section only - centered on mobile, flex on desktop */
+        /* Logo section - bigger size as requested */
         .logo-section {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
+            margin-bottom: 14px;
         }
 
         .logo-img {
-            height: 60px;
+            height: 80px;
             width: auto;
-            max-width: 220px;
+            max-width: 280px;
             display: block;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
             transition: transform 0.2s ease;
         }
 
@@ -101,26 +102,25 @@
             transform: scale(1.02);
         }
 
-        /* ========= CENTERED INFO ROW: Mobile + Veg/Nonveg ========= */
+        /* ========= CENTERED INFO ROW: Mobile + Veg/Nonveg - ALWAYS SINGLE LINE ========= */
         .info-center {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 28px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-            padding: 8px 16px;
-            background: rgba(0,0,0,0.25);
+            gap: 20px;
+            flex-wrap: nowrap;
+            background: rgba(0,0,0,0.3);
             border-radius: 60px;
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
             backdrop-filter: blur(4px);
+            padding: 6px 20px;
         }
 
         .mobile-numbers {
             background: rgba(0,0,0,0.5);
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 60px;
             font-weight: 700;
             font-size: 0.9rem;
@@ -128,6 +128,7 @@
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255,255,255,0.1);
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .mobile-numbers::before {
@@ -137,9 +138,9 @@
 
         .veg-nonveg {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             background: rgba(0,0,0,0.4);
-            padding: 6px 20px;
+            padding: 6px 18px;
             border-radius: 60px;
             backdrop-filter: blur(4px);
         }
@@ -151,6 +152,7 @@
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .veg { color: #81c784; }
@@ -184,7 +186,7 @@
         .search {
             background: var(--glass);
             border-radius: 60px;
-            padding: 12px 24px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -445,13 +447,55 @@
             overflow-y: auto;
         }
 
-        /* responsive */
+        /* responsive: ensure mobile single line, logo bigger */
+        @media (max-width: 640px) {
+            .info-center {
+                gap: 12px;
+                padding: 4px 12px;
+            }
+            .mobile-numbers {
+                font-size: 0.75rem;
+                padding: 4px 12px;
+                white-space: nowrap;
+            }
+            .veg, .nonveg {
+                font-size: 0.7rem;
+                gap: 5px;
+                white-space: nowrap;
+            }
+            .veg-nonveg {
+                gap: 10px;
+                padding: 4px 12px;
+            }
+            .logo-img {
+                height: 70px;
+                max-width: 240px;
+            }
+            .tab {
+                padding: 6px 14px;
+                font-size: 0.7rem;
+            }
+            .thumb {
+                width: 100px;
+                height: 100px;
+            }
+            .search {
+                padding: 10px 18px;
+            }
+            .search input {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .logo-img {
+                height: 80px;
+            }
+        }
+
         @media (min-width: 640px) {
             .menu-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .search input {
-                font-size: 1.1rem;
             }
         }
         @media (min-width: 1024px) {
@@ -459,30 +503,7 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        @media (max-width: 550px) {
-            .veg-nonveg, .mobile-numbers {
-                font-size: 0.7rem;
-                padding: 4px 12px;
-            }
-            .info-center {
-                gap: 12px;
-            }
-            .tab {
-                padding: 6px 14px;
-                font-size: 0.7rem;
-            }
-            .logo-img {
-                height: 50px;
-            }
-            .thumb {
-                width: 100px;
-                height: 100px;
-            }
-        }
 
-        .delivery-options, .cart-item, .btn-whatsapp, .btn-clear {
-            /* consistent style */
-        }
         .btn-whatsapp {
             background: #25D366;
             border: none;
@@ -529,14 +550,14 @@
 </head>
 <body>
 <div class="container">
-    <!-- CAFE HEADER: Only logo section (no Tupe's name text), and centered info row below -->
+    <!-- CAFE HEADER: Only logo (bigger) + centered inline row with mobile & veg/nonveg -->
     <div class="cafe-header">
-        <!-- Logo only - centered -->
+        <!-- Logo only - bigger size -->
         <div class="logo-section">
-            <img src="logo.png" alt="Tupe's Logo" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%2260%22%20viewBox%3D%220%200%20180%2060%22%3E%3Crect%20width%3D%22180%22%20height%3D%2260%22%20fill%3D%22%23d4af37%22%20rx%3D%2212%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2238%22%20fill%3D%22%23000%22%20font-weight%3D%22bold%22%20font-size%3D%2224%22%3ETupe%27s%3C%2Ftext%3E%3C%2Fsvg%3E'">
+            <img src="logo.png" alt="Tupe's Logo" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%2280%22%20viewBox%3D%220%200%20200%2080%22%3E%3Crect%20width%3D%22200%22%20height%3D%2280%22%20fill%3D%22%23d4af37%22%20rx%3D%2216%22%2F%3E%3Ctext%20x%3D%2225%22%20y%3D%2250%22%20fill%3D%22%23000%22%20font-weight%3D%22bold%22%20font-size%3D%2232%22%3ETupe%27s%3C%2Ftext%3E%3C%2Fsvg%3E'">
         </div>
         
-        <!-- Centered row: Mobile number + Veg/Nonveg -->
+        <!-- Single line row: Mobile number + Veg/Nonveg (always inline on mobile) -->
         <div class="info-center">
             <div class="mobile-numbers">+91 75880 75353</div>
             <div class="veg-nonveg">
